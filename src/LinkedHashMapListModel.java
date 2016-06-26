@@ -50,6 +50,7 @@ public class LinkedHashMapListModel<K,V> extends AbstractListModel<V> {
     public void remove(K key) {
         int index = new ArrayList(delegate.keySet()).indexOf(key);
         delegate.remove(key);
+        index = index > 0 ? index : 0;
         fireIntervalRemoved(this, index, index);
     }
 
